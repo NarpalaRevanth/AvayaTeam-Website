@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&family=Noto+Sans+JP:wght@300;400;500;700&family=Plus+Jakarta+Sans:wght@700;800&family=Inter:wght@400;500;600&display=swap');
+@import "tailwindcss";
+
+/* ── Brand Design Tokens (Avaya Brand Guidelines April 2025) ── */
+@theme {
+  /* Typography — Oxygen for titles, Noto Sans JP for body */
+  --font-oxygen: "Oxygen", sans-serif;
+  --font-noto: "Noto Sans JP", sans-serif;
+  --font-headline: "Oxygen", sans-serif;
+  --font-body: "Noto Sans JP", sans-serif;
+
+  /* Brand Base Colors */
+  --color-primary: #006290;
+  --color-primary-container: #007bb4;
+  --color-secondary: #683193;
+  --color-tertiary: #DA291C;
+
+  /* Surface Colors — White is predominant per brand guidelines */
+  --color-surface: #F5F5F5;
+  --color-surface-dim: #DADADA;
+  --color-surface-container-lowest: #FFFFFF;
+  --color-surface-container-low: #F3F3F3;
+  --color-surface-container: #EEEEEE;
+  --color-surface-container-high: #E8E8E8;
+  --color-surface-container-highest: #E2E2E2;
+
+  /* Text Colors */
+  --color-on-surface: #1a1c1c;
+  --color-on-surface-variant: #3f4850;
+  --color-outline-variant: #BCBCBC;
+}
+
+@layer base {
+  body {
+    @apply bg-surface font-noto text-on-surface antialiased;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-oxygen);
+  }
+}
+
+@layer utilities {
+  /* Brand gradient — ONLY blue tint L1 → purple tint L1 → Avaya red (per guidelines) */
+  .avaya-gradient-bg {
+    background: linear-gradient(135deg, #61D6FF 45%, #9C4DE8 20%, #DA291C 35%);
+  }
+
+  /* Gradient text variant */
+  .avaya-gradient-text {
+    background: linear-gradient(135deg, #0194D7 0%, #DA291C 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Status tag — uses brand tint level 2 green */
+  .status-tag {
+    background-color: #E0F9DC;
+    color: #000000;
+    border-left: 3px solid #63C558;
+  }
+
+  /* Asymmetric card shape — brand offset frame style */
+  .asymmetric-card {
+    border-radius: 4px 4px 40px 4px;
+  }
+
+  /* Offset frame shadow effect — brand guideline compliant */
+  .offset-frame-shadow {
+    position: relative;
+  }
+
+  .offset-frame-shadow::before {
+    content: '';
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    right: -4px;
+    bottom: -4px;
+    background: linear-gradient(135deg, #0194D7, #683193);
+    z-index: -1;
+    border-radius: 4px 4px 40px 4px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .group:hover .offset-frame-shadow::before {
+    opacity: 1;
+  }
+}
