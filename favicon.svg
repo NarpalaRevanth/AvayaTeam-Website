@@ -1,0 +1,17 @@
+<?xml version="1.0" standalone="no"?>
+<svg id="svg-favicon" viewBox="0 0 100 100" width="100" height="100" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="avayaLogoGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#0194D7"/>
+            <stop offset="45%" stop-color="#9C4DE8"/>
+            <stop offset="100%" stop-color="#DA291C"/>
+          </linearGradient>
+        </defs>
+        <!-- Offset frame with curved bottom right -->
+        <path d="M 10 10 L 90 10 L 90 65 A 25 25 0 0 1 65 90 L 10 90 Z" fill="none" stroke="url(#avayaLogoGrad)" stroke-width="12" stroke-linejoin="round"/>
+        <!-- Inner network node graphic -->
+        <circle cx="35" cy="35" r="10" fill="url(#avayaLogoGrad)"/>
+        <circle cx="65" cy="65" r="10" fill="url(#avayaLogoGrad)"/>
+        <path d="M 35 35 L 65 65" fill="none" stroke="url(#avayaLogoGrad)" stroke-width="6"/>
+        <path d="M 65 35 L 65 55" fill="none" stroke="url(#avayaLogoGrad)" stroke-width="6" stroke-linecap="round"/>
+      </svg>
