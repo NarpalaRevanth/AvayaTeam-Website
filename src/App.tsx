@@ -7,7 +7,7 @@ import JobSchedulingPage from './JobSchedulingPage';
 import BasisPage from './BasisPage';
 
 const AvayaLogo = () => (
-  <img src="/Avaya-IT-Header-Logo.png" alt="Enterprise IT" className="h-10 w-auto object-contain" />
+  <img src="generated-image.png" alt="Enterprise IT" className="h-10 w-auto object-contain" />
 );
 
 const Navbar = ({ currentPage, onNavigate }: { currentPage: string, onNavigate: (page: string) => void }) => (
