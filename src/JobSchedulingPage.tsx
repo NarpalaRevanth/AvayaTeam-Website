@@ -67,16 +67,19 @@ export default function JobSchedulingPage() {
               <h2 className="font-oxygen font-bold text-2xl tracking-tight mb-8">Team Contacts</h2>
               <div className="flex flex-wrap gap-6">
                 {[
-                  { name: 'Marcus Chen', role: 'Lead Architect' },
-                  { name: 'Sarah Jenkins', role: 'DevOps Specialist' },
-                  { name: 'David Vogt', role: 'Automation Lead' }
+                  { name: 'Shafiuddin Syed', role: 'IT Operations Sr Manager', email: 'sshafiuddin@avaya.com' },
+                  { name: 'Panda Sonali', role: 'IT Operations Analyst II', email: 'panda32@avaya.com' },
+                  { name: 'Revanth Narpala', role: 'Trainee Software Engineer', email: 'rnarpala@avaya.com' }
                 ].map((person) => (
                   <div key={person.name} className="flex items-center gap-3 pr-6 border-r border-[#E6E6E6] last:border-0">
                     <div className="w-10 h-10 rounded-full avaya-gradient-bg flex items-center justify-center text-white font-bold flex-shrink-0">
                       {person.name.charAt(0)}
                     </div>
                     <div>
-                      <p className="text-sm font-bold text-on-surface">{person.name}</p>
+                      <div className="flex items-center gap-2">
+                        <p className="text-sm font-bold">{person.name}</p>
+                        <a href={`mailto:${person.email}`} className="text-blue-500">📧</a>
+                      </div>
                       <p className="text-xs text-on-surface-variant uppercase tracking-wider">{person.role}</p>
                     </div>
                   </div>
@@ -87,29 +90,43 @@ export default function JobSchedulingPage() {
 
           {/* Right Column */}
           <div className="col-span-12 lg:col-span-4 space-y-8">
-            <h3 className="font-oxygen font-bold text-sm uppercase tracking-[0.2em] text-on-surface-variant">Quick Actions</h3>
-            {[
-              { title: 'Schedule Job', desc: 'Initialize a new recurring task or one-time batch execution.' },
-              { title: 'Job Status Request', desc: 'Query the live status and execution logs of any active PID.' }
-            ].map((action) => (
-              <div key={action.title}
-                className="bg-white border border-[#E6E6E6] p-8 rounded-lg cursor-pointer hover:-translate-x-1 hover:-translate-y-1 transition-transform shadow-sm">
-                <h4 className="font-oxygen font-bold text-xl mb-2">{action.title}</h4>
-                <p className="text-sm text-on-surface-variant leading-relaxed">{action.desc}</p>
-                <span className="text-primary font-bold text-sm mt-3 inline-block">→ Open</span>
-              </div>
-            ))}
-            <div className="bg-[#DADADA] rounded-lg p-6">
-              <h5 className="font-bold text-sm mb-2">System Health</h5>
-              <div className="flex items-center gap-2 mb-4">
-                <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                <span className="text-xs font-medium">99.98% Success Rate</span>
-              </div>
-              <div className="w-full h-1 bg-white rounded-full overflow-hidden">
-                <div className="h-full w-[85%] rounded-full avaya-gradient-bg"></div>
-              </div>
-            </div>
-          </div>
+  <h3 className="font-oxygen font-bold text-sm uppercase tracking-[0.2em] text-on-surface-variant">
+    Quick Actions
+  </h3>
+
+  {[
+    { 
+      title: 'Team Drive', 
+      desc: 'Quick access to Google Drive for team file sharing and collaboration.', 
+      link:'https://drive.google.com/drive/folders/1NCIXRKDDewPraj38HA2ECLLnos8dUxeA?usp=drive_link'
+    },
+    { 
+      title: 'Job Status Request', 
+      desc: 'Query the live status and execution logs of any active PID.' 
+    }
+  ].map((action) => (
+    <div 
+      key={action.title}
+      onClick={() => action.link && window.open(action.link, "_blank")}
+      className="bg-white border border-[#E6E6E6] p-8 rounded-lg cursor-pointer hover:-translate-x-1 hover:-translate-y-1 transition-transform shadow-sm"
+    >
+      <h4 className="font-oxygen font-bold text-xl mb-2">{action.title}</h4>
+      <p className="text-sm text-on-surface-variant leading-relaxed">{action.desc}</p>
+      <span className="text-primary font-bold text-sm mt-3 inline-block">→ Open</span>
+    </div>
+  ))}
+
+  <div className="bg-[#DADADA] rounded-lg p-6">
+    <h5 className="font-bold text-sm mb-2">System Health</h5>
+    <div className="flex items-center gap-2 mb-4">
+      <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
+      <span className="text-xs font-medium">99.98% Success Rate</span>
+    </div>
+    <div className="w-full h-1 bg-white rounded-full overflow-hidden">
+      <div className="h-full w-[85%] rounded-full avaya-gradient-bg"></div>
+    </div>
+  </div>
+</div>
         </div>
       </main>
     </div>
